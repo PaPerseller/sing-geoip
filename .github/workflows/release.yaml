@@ -2,7 +2,7 @@ name: Release
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 8 12 * *"
+    - cron: "0 3 1,10,20 * *"
 jobs:
   build:
     name: Build
@@ -37,11 +37,11 @@ jobs:
           keep_latest: 10
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Release geoip
-        if: steps.build.outputs.skip != 'true'
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ steps.build.outputs.tag }}
-          files: |
-            geoip.db
-            geoip.db.sha256sum
+#      - name: Release geoip
+#        if: steps.build.outputs.skip != 'true'
+#        uses: softprops/action-gh-release@v1
+#        with:
+#          tag_name: ${{ steps.build.outputs.tag }}
+#          files: |
+#            geoip.db
+#            geoip.db.sha256sum
