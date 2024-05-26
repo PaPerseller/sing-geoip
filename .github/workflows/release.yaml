@@ -15,7 +15,7 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.21'
+          go-version: '1.22'
           check-latest: true
       - name: Build geoip
         id: build
@@ -31,7 +31,7 @@ jobs:
           sha256sum geoip.db > geoip.db.sha256sum
       - uses: dev-drprasad/delete-older-releases@v0.3.2
         with:
-          keep_latest: 10
+          keep_latest: 1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #      - name: Release geoip

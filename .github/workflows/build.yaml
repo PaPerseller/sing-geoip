@@ -15,7 +15,7 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.21'
+          go-version: '1.22'
           check-latest: true
       - name: Build geoip
         id: build
@@ -23,7 +23,7 @@ jobs:
           NO_SKIP: true
         run: go run -v .
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: geoip.db
           path: geoip.db
